@@ -1,11 +1,8 @@
+"""N-Queens problem solution using heuristics."""
 import itertools
 import random
 
 from cached_property import cached_property
-
-
-# TODO docs
-# TODO do with processing
 
 
 class QueenMatrix:
@@ -19,8 +16,6 @@ class QueenMatrix:
 
     def __init__(self, n):
         self.n = n
-        # self.queens = list(range(self.n))
-        # random.shuffle(self.queens)
         self.steps = 0
         self.combs = list(itertools.combinations(range(self.n), r=2))
 
