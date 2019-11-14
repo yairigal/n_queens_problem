@@ -1,4 +1,4 @@
-from place_and_fix import QueenMatrix
+from main import QueenMatrix
 
 
 # HELP FUNCTION
