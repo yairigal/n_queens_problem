@@ -111,6 +111,22 @@ def test_cost():
     q = create_game_with_queens([1, 3, 0, 2])
     assert q.cost(0, 0) == 2
     assert q.cost(0, 1) == 1
+    assert q.cost(0, 2) == 4
+    assert q.cost(0, 3) == 2
+    assert q.cost(1, 0) == 4
     assert q.cost(1, 1) == 3
+    assert q.cost(1, 2) == 3
+    assert q.cost(1, 3) == 1
+    assert q.cost(2, 0) == 1
     assert q.cost(2, 1) == 3
+    assert q.cost(2, 2) == 3
     assert q.cost(2, 3) == 4
+    assert q.cost(3, 0) == 2
+    assert q.cost(3, 1) == 4
+    assert q.cost(3, 2) == 1
+    assert q.cost(3, 3) == 2
+
+
+def test_reliability():
+    for _ in range(100):
+        QueenMatrix(8).solve(verbose=False)
