@@ -1,6 +1,7 @@
 """N-Queens problem solution using heuristics."""
 import itertools
 import random
+from statistics import stdev, mean
 
 from cached_property import cached_property
 
@@ -178,3 +179,22 @@ class QueenMatrix:
         if verbose:
             print(self.queens)
             print(f'steps={self.steps}')
+
+
+if __name__ == '__main__':
+    n = 8
+    results = []
+    iterations = 10_000
+
+    print(f'Solving {n}-Queens problem {iterations} times')
+    for _ in range(iterations):
+        q = QueenMatrix(n)
+        q.solve(verbose=False)
+        results.append(q.steps)
+
+    print(
+        f"""
+Stats:
+    steps standard deviation ={stdev(results)}
+    average steps={mean(results)}"""
+    )
